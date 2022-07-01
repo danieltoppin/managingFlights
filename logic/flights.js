@@ -1,4 +1,4 @@
-const { supportsEsModules } = require("mocha/lib/utils");
+//import { supportsEsModules } from "mocha/lib/utils";
 
 function Flights() {
     
@@ -53,6 +53,7 @@ function Flights() {
 }
 
 
-module.exports = Flights();
+//export default Flights();
+module.exports = Flights()
 
 

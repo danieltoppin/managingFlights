@@ -1,8 +1,7 @@
 "use strict"
 
 var Util = require('../logic/util');
-var passengers = require('../logic/passengers');
-var Flights = require('../logic/flights');
+var Flights = require('../logic/flights').default;
 var Passengers = require('../logic/passengers');
 
 
@@ -86,9 +85,10 @@ function onDistributePassengers() {
 
     let distributedPassengers = Passengers().distributeAllSeatsToAllPassengers(vipPassengers, regularPassengers, 
                                            nrOfFlights, businessSeatsPerFlight, economySeatsPerFlight);
-    //console.log('distributedPassengers', distributedPassengers);
+        
+    console.log('FE distributedPassengers:', distributedPassengers);
+
     let totalDistributedPassengers = Util().calculateTotalDistributedPassengers(distributedPassengers);                                       
-        console.log('distributedPassengers.vipPassengersWithBusinessSeats', distributedPassengers.vipPassengersWithBusinessSeats);
     document.getElementById("distributedPassengers").innerHTML = 
          "Total number of distributed passengers: " + totalDistributedPassengers + "<br>" +
          "VIP passengers distributed to business seats: " + distributedPassengers.vipPassengersWithBusinessSeats + "<br>" + 
