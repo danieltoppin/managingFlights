@@ -19,6 +19,41 @@ function Util() {
 
         return reducedPassengersArray;
   }
-  return { calculateTotalDistributedPassengers, calculateTotalNumberOfPassengers };
-}
+
+  function checkInput(input) {
+      
+      //if (input.length !== 0 && !isNan(input)) {
+        console.log('input', input);
+      if (input.length !== 0) {
+        return;
+      } else {
+        throw "The input is incorrect, please try again";
+      }
+  }
+
+  function calculateTotalDistance(distancesArray){
+
+    // CHECK THAT DISTANCES ARRAY VALUES ARE NOT NEGATIVE
+
+    const reducedDistancesArray = distancesArray.reduce((accumulator, value) => {
+      return accumulator + value;
+    }, 0);
+
+    return reducedDistancesArray;
+
+    };
+
+    function calculateBonusPoints(distancesArrayBis, distancesArrayEco, businessBonus, economyBonus){
+
+      let businessBonusPoints = calculateTotalDistance(distancesArrayBis) * businessBonus;
+
+      let economyBonusPoints = calculateTotalDistance(distancesArrayEco) * economyBonus;
+
+      let totalBonusPoints = businessBonusPoints + economyBonusPoints;
+
+      return totalBonusPoints;
+    }
+    return { calculateTotalDistributedPassengers, calculateTotalNumberOfPassengers, checkInput, calculateTotalDistance, calculateBonusPoints};
+  }
+  
 module.exports = Util();
