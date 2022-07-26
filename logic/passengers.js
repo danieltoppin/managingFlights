@@ -1,4 +1,5 @@
 //import { supportsEsModules } from "mocha/lib/utils";
+"use strict";
 
 function Passengers() {
   function checkFlightCapacity(flightCapacity, passengersArray) {

@@ -8,16 +8,13 @@ var Passengers = require('../logic/passengers');
 
 function onCalculateNumberOfFlights() {
     let passengers = document.getElementById('passengers').value;
-    console.log("Flights", Flights)
     
     let capacity = document.getElementById('capacity').value;
     try {
         const flights = Flights();
     const numberOfFlights = flights.calculateNumberOfFlights(passengers, capacity);
-       //const flights = Flights.calculateNumberOfFlights(passengers, capacity);
        document.getElementById('flights').innerHTML = "You will need " + numberOfFlights +
           " flight(s) to carry " + passengers + " passengers";
-          console.log("Flights: " + flights);
     } catch (error) {
         document.getElementById('flights').innerHTML = error; 
     } 
@@ -32,8 +29,7 @@ function onCalculateTotalFinalPrice(object) {
             Util().checkInput(document.getElementById('regularPassengersEconomyFlightBasePrice').value);
             Util().checkInput(document.getElementById('regularPassengersEconomyFlight').value);
             document.getElementById('regularPassengersEconomyFlightTotalPrice').innerHTML = 
-                  Prices().calculateTotalFinalPrice(document.getElementById('regularPassengersEconomyFlight').value,
-                          'regular', 'economy', 
+                  Prices().calculateTotalFinalPrice(document.getElementById('regularPassengersEconomyFlight').value, 'regular', 'economy', 
                            document.getElementById('regularPassengersEconomyFlightBasePrice').value);
         break;
         case 'vipeconomy':
@@ -119,7 +115,7 @@ function onCalculateTotalDistance() {
     let distance5 = parseInt(document.getElementById("distance5").value);
 
     let distancesArray = [distance1, distance2, distance3, distance4, distance5];
-    calculatedTotalDistance = Util().calculateTotalDistance(distancesArray);
+    let calculatedTotalDistance = Util().calculateTotalDistance(distancesArray);
 
     document.getElementById("calculatedTotalDistance").innerHTML = "Total distance: " + calculatedTotalDistance;
 
@@ -148,7 +144,7 @@ function onCalculateBonusPoints() {
     let businessBonus = parseInt(document.getElementById("businessBonus").value);
     let economyBonus = parseInt(document.getElementById("economyBonus").value);
 
-    calculatedBonusPoints = Util().calculateBonusPoints(businessDistancesArray, economyDistancesArray, 
+    let calculatedBonusPoints = Util().calculateBonusPoints(businessDistancesArray, economyDistancesArray, 
                                                               businessBonus, economyBonus);
 
     document.getElementById("calculatedBonusPoints").innerHTML = "Bonus points: " + calculatedBonusPoints;

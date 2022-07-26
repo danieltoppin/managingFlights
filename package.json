@@ -11,7 +11,8 @@
   "license": "free",
   "devDependencies": {
     "@types/mocha": "^9.1.1",
-    "lite-server": "^2.5.4"
+    "lite-server": "^2.5.4",
+    "prettier": "2.7.1"
   },
   "dependencies": {
     "common-js": "^0.3.8",
