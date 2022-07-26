@@ -1,4 +1,5 @@
 //import { supportsEsModules } from "mocha/lib/utils";
+"use strict";
 
 function Flights() {
     
@@ -27,7 +28,7 @@ function Flights() {
 
     function checkAircraftRevision(distanceLimit, distancesArray)
     {
-         totalDistance = distancesArray;
+         let totalDistance = distancesArray;
 
          if (totalDistance <= ( distanceLimit / 2))
          {
@@ -52,8 +53,6 @@ function Flights() {
     return {calculateNumberOfFlights, checkAircraftRevision};
 }
 
-
-//export default Flights();
 module.exports = Flights()
 
 
